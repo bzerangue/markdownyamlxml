@@ -126,18 +126,20 @@ foreach ($result as $name => $dirs)
 
             $meta = $doc->createElement('meta');
             $fileentry->appendChild($meta);
-            foreach($page->data as $key => $value)
+            
+            $metadata = $page->fetchkeys();
+
+           foreach($metadata as $key => $value)
             {
-                // You want to skip the content item right?
-                if($key != 'content')
-                {
-                    // $key = title
-                    // $value = $page->fetch('title')
-                    $metatitle = $doc->createElement(ltrim($key));
-                    $metatitle->appendChild( $doc->createTextNode( $page->fetch($key) ) );
-                    $meta->appendChild($metatitle);
-                }
+                # You want to skip the content item right?
+                    # $key = title
+                    # $value = $page->fetch('title')
+              //var_dump($key);
+                    $metatitle = $doc->createElement(trim($key));
+                    $metatitle->appendChild( $doc->createTextNode($value));
+                   $meta->appendChild($metatitle);
             }
+            
            $contentoutput = $doc->createElement('content');
            $contentoutput->appendChild($fragment);
            $fileentry->appendChild($contentoutput); 
