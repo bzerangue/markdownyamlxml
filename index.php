@@ -126,19 +126,18 @@ foreach ($result as $name => $dirs)
 
             $meta = $doc->createElement('meta');
             $fileentry->appendChild($meta);
-
-
-              // I would like to dynamically repeat this section of code
-              // based upon the key=>value pairs in the YAML frontmatter
-
-                $metatitle = $doc->createElement('title');
-                $metatitle->appendChild( $doc->createTextNode( $page->fetch('title') ) );
-                $meta->appendChild($metatitle);
-
-              // end of dynamic yaml front matter 
-                
-
-        
+            foreach($page->data as $key => $value)
+            {
+                # You want to skip the content item right?
+                if($key != 'content')
+                {
+                    # $key = title
+                    # $value = $page->fetch('title')
+                    $metatitle = $doc->createElement('title');
+                    $metatitle->appendChild( $doc->createTextNode( $page->fetch('title') ) );
+                    $meta->appendChild($metatitle);
+                }
+            }
            $contentoutput = $doc->createElement('content');
            $contentoutput->appendChild($fragment);
            $fileentry->appendChild($contentoutput); 
