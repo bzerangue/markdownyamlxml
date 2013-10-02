@@ -128,12 +128,12 @@ foreach ($result as $name => $dirs)
             $fileentry->appendChild($meta);
             foreach($page->data as $key => $value)
             {
-                # You want to skip the content item right?
+                // You want to skip the content item right?
                 if($key != 'content')
                 {
-                    # $key = title
-                    # $value = $page->fetch('title')
-                    $metatitle = $doc->createElement('title');
+                    // $key = title
+                    // $value = $page->fetch('title')
+                    $metatitle = $doc->createElement(ltrim($key));
                     $metatitle->appendChild( $doc->createTextNode( $page->fetch('title') ) );
                     $meta->appendChild($metatitle);
                 }

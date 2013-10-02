@@ -11,7 +11,7 @@
  */
 class FrontMatter
 {
-    private $data;
+    public $data;
     
     /**
      * Constructor method, checks a file and then puts the contents into custom strings for usage
