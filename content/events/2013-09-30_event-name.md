@@ -8,6 +8,6 @@ location:
   address: 3 Abbey Rd  London, Greater London NW8 9AY, United Kingdom 
 ---
 
-## About
+## Event Name Stuff
 
 More stuff.

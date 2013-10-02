@@ -10,3 +10,7 @@ tags:
 ## About
 
 Yep. **Another** test.
+
+> *This is a quote for all-time.*
+
+[Google](http://www.google.com)
