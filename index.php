@@ -81,7 +81,7 @@ foreach($iterator as $path => $info)
 #
 
 // adding Content Type
-//header("Content-type: text/xml");
+header("Content-type: text/xml");
 
 // create a new XML document
 $doc = new DOMDocument('1.0', 'utf-8');
@@ -134,7 +134,7 @@ foreach ($result as $name => $dirs)
                     // $key = title
                     // $value = $page->fetch('title')
                     $metatitle = $doc->createElement(ltrim($key));
-                    $metatitle->appendChild( $doc->createTextNode( $page->fetch('title') ) );
+                    $metatitle->appendChild( $doc->createTextNode( $page->fetch($key) ) );
                     $meta->appendChild($metatitle);
                 }
             }
